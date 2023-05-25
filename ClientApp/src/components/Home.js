@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Slide} from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
+//import {Slide} from 'react-slideshow-image';
+//import 'react-slideshow-image/dist/styles.css'
 
 export class Home extends Component {
   static displayName = Home.name;
