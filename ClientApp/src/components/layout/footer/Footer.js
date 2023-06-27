@@ -1,13 +1,15 @@
 import React,{ Component } from "react";
-import {  } from 'reactstrap';
+import { MDBFooter } from 'mdb-react-ui-kit';
 import './Footer.css';
 
 export class Footer extends Component{
     render() {
         return (
-            <footer>
-                <p>Practice Website @ 2023</p>
-            </footer>
+            <MDBFooter bgColor="light" className="text-center text-lg-start text-muted" >
+                <div className="text-center" style={{ backgroundColor: 'rgba(0,0,0,0.05)'}}>
+                    Practice Website @ 2023 No Copyright
+                </div>
+            </MDBFooter>
         );
     }
 }
