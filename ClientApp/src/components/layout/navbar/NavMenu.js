@@ -3,7 +3,7 @@ import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from '
 import { Link } from 'react-router-dom';
 import { LoginMenu } from '../../api-authorization/LoginMenu';
 import './NavMenu.css';
-import logo from '../../../assets/image/Little_King-logos.jpeg';
+import logo from '../../../assets/image/logo/Little_King-logos.jpeg';
 
 
 export class NavMenu extends Component {
