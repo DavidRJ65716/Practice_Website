@@ -1,4 +1,4 @@
-import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
+//import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 //import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import { Employee } from './components/Employee';
@@ -18,7 +18,6 @@ const AppRoutes = [
     requireAuth: false,
     element: <Employee />
   },
-  ...ApiAuthorzationRoutes
 ];
 
 export default AppRoutes;

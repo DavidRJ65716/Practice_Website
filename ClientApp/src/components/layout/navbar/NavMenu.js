@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LoginMenu } from '../../api-authorization/LoginMenu';
+//import { LoginMenu } from '../../api-authorization/LoginMenu';
 import './NavMenu.css';
 import logo from '../../../assets/image/logo/Little_King-logos.jpeg';
 
@@ -37,9 +37,7 @@ export class NavMenu extends Component {
               </NavItem>
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/Employee">Name</NavLink>
-              </NavItem>
-              <LoginMenu>
-              </LoginMenu>
+              </NavItem>             
             </ul>
           </Collapse>
         </Navbar>
