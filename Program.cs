@@ -1,26 +1,14 @@
 using Microsoft.AspNetCore.Authentication;
-//using Microsoft.AspNetCore.Identity;
-//using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
-using projects.Data;
-using projects.Models;
-//using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore.Tools;
-//using Pomelo.EntityFrameworkCore.MySql;
+using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+// Add Mysql Connection to the container.
+var connectionString = builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string 'Default' not found.");
+builder.Services.AddTransient<MySqlConnection>(_ =>
+    new MySqlConnection(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
@@ -44,9 +32,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 app.UseAuthentication();
-app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapControllerRoute(
