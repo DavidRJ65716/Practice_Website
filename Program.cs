@@ -10,6 +10,8 @@ builder.Services.AddTransient<MySqlConnection>(_ =>
     new MySqlConnection(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddControllers();
+
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 

@@ -8,8 +8,8 @@ using projects.Data;
 
 namespace projects.Migrations
 {
-    [DbContext(typeof(EmployDB))]
-    partial class EmployDBModelSnapshot : ModelSnapshot
+    [DbContext(typeof(EntityDB))]
+    partial class EntityDBModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,25 @@ namespace projects.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("projects.Models.Log", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Discription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Entry")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logs");
                 });
 #pragma warning restore 612, 618
         }
