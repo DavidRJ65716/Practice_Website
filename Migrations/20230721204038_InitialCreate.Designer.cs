@@ -9,8 +9,8 @@ using projects.Data;
 
 namespace projects.Migrations
 {
-    [DbContext(typeof(EmployDB))]
-    [Migration("20230714211444_InitialCreate")]
+    [DbContext(typeof(EntityDB))]
+    [Migration("20230721204038_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -49,6 +49,25 @@ namespace projects.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("projects.Models.Log", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Discription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Entry")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logs");
                 });
 #pragma warning restore 612, 618
         }
