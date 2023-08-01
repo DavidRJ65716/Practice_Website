@@ -5,6 +5,10 @@ namespace projects.Data{
 
     public class EntityDB : DbContext{
 
+        public EntityDB(DbContextOptions<EntityDB> options) : base(options){
+            
+        }
+
         public DbSet<Employees> Employee {get; set;}
         public DbSet<Log> Logs {get; set;}
 

@@ -1,28 +1,28 @@
 import React, { Component,useState } from 'react';
 import "./Employee.css";
 
-/*function Name(){
-
-    const [name, SetName] = useState("");
-
-    return(
-        <div className='employInput2'>
-                    <label>Name:</label>
-                    <input type="text" />
-                    <label>Age:</label>
-                    <input type="text" />
-                    <label>Department:</label>
-                    <input type="text" />
-                </div>
-    );
-}*/
-
 export class Employee extends Component{
     
     static displayname = Employee.name;
-    /*constructor(props){
-        super(props)
-    }*/
+    
+    constructor(props){
+        super(props);
+
+        this.state = {
+            
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleInputChange(event){
+        //const target = event.target;
+        //const value = target.type == 'text' ? target.checked : target.value;
+
+        this.setState({
+            //[name]: value
+        })
+    }
 
     render (){    
 
@@ -37,28 +37,34 @@ export class Employee extends Component{
                     <label>
                         First Name:
                         <input 
+                            name="FirstName"
                             type="text" />
+                            
                     </label>
                     <label>
                         Last Name:
                         <input 
+                            name="LastName"
                             type="text" />
                     </label>
                     <label>
                         Department:
                         <input 
-                        type="text" />
+                            name="Deprt"
+                            type="text" />
                     </label>
                     <label>
                         Phone:
-                        <input 
+                        <input
+                            name="Phone"
                             type="tel" 
                             className='phone' 
                             pattern='([0-9]{3})-[0-9]{3}-[0-9]{4})'/>
                     </label>
                     <label>
                         Email:
-                        <input 
+                        <input
+                            name="Email"
                             type="text" />
                     </label>
                 </div>

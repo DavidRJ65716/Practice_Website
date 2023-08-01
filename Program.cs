@@ -1,15 +1,18 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
+using projects.Data;
+using projects.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Mysql Connection to the container.
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string 'Default' not found.");
-builder.Services.AddTransient<MySqlConnection>(_ =>
-    new MySqlConnection(connectionString));
+builder.Services.AddTransient<MySqlConnection>(_ => new MySqlConnection(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddScoped<IDBServices, DBServices>();
+builder.Services.AddDbContext<EntityDB>();
 builder.Services.AddControllers();
 
 builder.Services.AddAuthentication()

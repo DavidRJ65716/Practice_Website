@@ -3,6 +3,7 @@
 import { Home } from "./components/Home";
 import { Employee } from './components/Employee';
 
+//json Array stroing pages paths
 const AppRoutes = [
   {
     index: true,
